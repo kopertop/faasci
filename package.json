@@ -13,8 +13,8 @@
 		"typescript": "~2.9"
 	},
 	"scripts": {
-		"build": "rm -rf dist/ && tstc -p .",
-		"lint": "tslint \"lib/**/*.ts\"",
+		"build": "rm -rf dist/ && tsc -p .",
+		"lint": "tslint \"src/**/*.ts\"",
 		"test": "JASMINE_CONFIG_PATH=./jasmine.json jasmine-ts",
 		"prebuild": "npm test",
 		"pretest": "npm run lint"
@@ -23,5 +23,6 @@
 	"bin": {
 		"faasci": "./bin/faasci.js",
 		"fsci": "./bin/faasci.js"
-	}
+	},
+	"main": "dist/index.js"
 }
