@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es6",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true
+	},
+	"preserveConstEnums": true,
+	"strictNullChecks": true,
+	"sourceMap": true,
+	"target": "es6",
+	"moduleResolution": "node",
+	"lib": ["es2015"],
+	"exclude": [
+		"node_modules",
+		"*.spec.ts"
+  ]
+}
