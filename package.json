@@ -23,7 +23,9 @@
 		"prebuild": "npm test",
 		"pretest": "npm run lint"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"ncp": "^2.0.0"
+	},
 	"bin": {
 		"faasci": "./cli.js",
 		"fsci": "./cli.js"

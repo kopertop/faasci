@@ -35,15 +35,44 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var path = require("path");
+var ncp_1 = require("ncp");
 /**
  * Create a new AWS Lambda function
  */
 function create(project_name) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            console.log('Creating', project_name);
-            return [2 /*return*/];
+            switch (_a.label) {
+                case 0:
+                    console.log('Creating', project_name);
+                    return [4 /*yield*/, copyTemplateFiles(project_name)];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
         });
     });
 }
 exports.create = create;
+/**
+ * Copy the Template Files to the target directory
+ */
+function copyTemplateFiles(project_name) {
+    var src = path.join(path.dirname(__dirname), 'template');
+    var dst = path.join(process.cwd(), project_name);
+    console.log('COPY', src, dst);
+    return new Promise(function (done, reject) {
+        console.log('ncp');
+        ncp_1.ncp(src, dst, function (err) {
+            if (err) {
+                console.error('ERROR', err);
+                reject(err);
+            }
+            else {
+                done();
+            }
+        });
+    });
+}
+exports.copyTemplateFiles = copyTemplateFiles;
