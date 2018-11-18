@@ -2,6 +2,10 @@
 	"name": "faasci",
 	"description": "FaaS CI Tool, designed to bootstrap a new project to use CodeBuild and CodeCommit.",
 	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kopertop/faasci.git"
+	},
 	"devDependencies": {
 		"@types/jasmine": "^3.0.0",
 		"@types/node": "^10.3.5",
