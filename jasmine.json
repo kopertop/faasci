@@ -6,6 +6,5 @@
   "helpers": [
     "./jasmine-helper.js"
   ],
-  "stopSpecOnExpectationFailure": false,
-  "random": false
+  "oneFailurePerSpec": false
 }

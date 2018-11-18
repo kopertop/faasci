@@ -2,7 +2,6 @@
 	"name": "faasci",
 	"description": "FaaS CI Tool, designed to bootstrap a new project to use CodeBuild and CodeCommit.",
 	"version": "0.0.1",
-	"private": true,
 	"devDependencies": {
 		"@types/jasmine": "^3.0.0",
 		"@types/node": "^10.3.5",
@@ -14,7 +13,11 @@
 		"typescript": "~2.9"
 	},
 	"scripts": {
-		"test": "JASMINE_CONFIG_PATH=./jasmine.json jasmine-ts"
+		"build": "rm -rf dist/ && tstc -p .",
+		"lint": "tslint \"lib/**/*.ts\"",
+		"test": "JASMINE_CONFIG_PATH=./jasmine.json jasmine-ts",
+		"prebuild": "npm test",
+		"pretest": "npm run lint"
 	},
 	"dependencies": {},
 	"bin": {
