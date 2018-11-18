@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      # Pre-install dependencies and environment config
+      - apt-get update
+      - apt-get install -y ssh
+      - aws s3 sync s3://cannabiz-config/home/ ~/
+      - chmod 0600 ~/.ssh/*
+      - npm install npm@6 --global
+
+      # Install dependencies needed for running tests
+      - npm install
+
+  pre_build:
+    commands:
+      - npm test
+  build:
+    commands:
+      # Build the js files
+      - npm run build
+      # Zip everything up excluding the node_modules/@types directory and the aws-sdk directory
+      - zip -r archive.zip *.js node_modules -x "node_modules/@types" -x "node_modules/aws-sdk"
+      # Use the AWS CLI directly to upload our lambda function
+      - aws lambda update-function-code --function-name {{project_name}} --zip-file fileb://archive.zip --publish
