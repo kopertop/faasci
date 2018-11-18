@@ -21,8 +21,8 @@
 	},
 	"dependencies": {},
 	"bin": {
-		"faasci": "./bin/faasci.js",
-		"fsci": "./bin/faasci.js"
+		"faasci": "./cli.js",
+		"fsci": "./cli.js"
 	},
 	"main": "dist/index.js"
 }
